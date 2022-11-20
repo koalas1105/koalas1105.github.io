@@ -1,98 +1,84 @@
-# Minimalism
+# 介绍
 
-[![Build Status](https://travis-ci.org/showzeng/Minimalism.svg?branch=master)](https://travis-ci.org/showzeng/Minimalism)
-[![Jekyll Version](https://img.shields.io/badge/Jekyll-3.8-blue.svg)](https://jekyllrb.com/)
-[![Gem Version](https://badge.fury.io/rb/jekyll-theme-minimalism.svg)](https://badge.fury.io/rb/jekyll-theme-minimalism)
-[![Packagist](https://img.shields.io/packagist/l/doctrine/orm.svg?style=popout)](./LICENSE.txt)
+[![Language](https://img.shields.io/badge/Jekyll-Theme-blue)](https://github.com/TMaize/tmaize-blog)
+[![license](https://img.shields.io/github/license/TMaize/tmaize-blog)](https://github.com/TMaize/tmaize-blog)
+[![GitHub stars](https://img.shields.io/github/stars/TMaize/tmaize-blog?style=social)](https://github.com/TMaize/tmaize-blog)
 
-![screenshot](./docs/screenshot.png)
+一款 jekyll 主题（[GitHub 地址](https://github.com/TMaize/tmaize-blog)），简洁纯净(主题资源请求<20KB)，未引入任何框架，秒开页面，支持自适应，支持全文检索，支持夜间模式
 
-Minimalism 是一款基于 Jekyll 为极简主义者打造的极简主题。你可以访问 [我的博客][blog] 或者 [主题 demo][demo] 来预览一下。
+你可以到[TMaize Blog](https://blog.tmaize.net/)查看主题效果，欢迎添加友链
 
-## 特性
+## 感谢
 
-**V0.1.x**
-- 这款主题采用响应式布局，对各大主流浏览器做了兼容，对移动客户端做了适配
-- 支持 RSS 订阅
-- SEO 优化
-- 文章默认采用 [CC BY-NC-ND 4.0][license] 协议对著作权进行保护，支持 emoji 表情
-- 支持禁止复制、禁止右键菜单、复制附带版权声明等多种功能
-- 支持文章图片查看大图
-- 支持文章打赏 (微信、支付宝)
-- 支持评论功能 (目前支持来必力、gitment)
-- 支持站点统计 (目前支持谷歌统计、百度统计、友盟 cnzz 统计)
-- 最后且最重要的当然还是对博客文章极度的阅读体验优化
+[JetBrains](https://www.jetbrains.com/?from=tmaize-blog) 免费提供的开发工具[![JetBrains](./static/img/jetbrains.svg)](https://www.jetbrains.com/?from=tmaize-blog)
 
-## 安装
+[夜间模式代码高亮配色](https://github.com/mgyongyosi/OneDarkJekyll)
 
-在你的 `Gemfile` 文件中加入下面这一行:
+# 本地运行
 
-```ruby
-gem "jekyll-theme-minimalism"
+一般提交到 github 过个几十秒就可以看到效果，如果你需要对在本地查看效果需要安装 ruby 环境和依赖
+
+windows 下推荐在 wsl 下装 ruby，直接一句`apt install build-essential ruby ruby-dev` 就行了
+
+```bash
+# linux下需要gcc
+
+# gem sources --add https://gems.ruby-china.com/
+# gem sources --remove https://rubygems.org/
+# gem sources --remove https://mirrors.aliyun.com/rubygems/
+# gem sources -l
+gem install bundler
+# bundle config mirror.https://rubygems.org https://gems.ruby-china.com
+bundle install
 ```
 
-然后使用 bundle 执行安装:
+通过下面命令启动/编译项目
 
-    $ bundle install
+```bash
+bundle exec jekyll serve --watch --host=127.0.0.1 --port=8080
+bundle exec jekyll build --destination=dist
+```
 
-或者你也可以手动下载安装:
+如果需要替换代码高亮的样式可以通过下面的命令生成 css
 
-    $ gem install jekyll-theme-minimalism
+```bash
+rougify help style
+rougify style github > highlighting.css
+```
 
-在你的配置文件 `_config.yml` 中修改启用主题 (本地预览):
+# 项目配置
+
+1. 如果使用自己的域名，`CNAME`文件里的内容请换成你自己的域名，然后 CNAME 解析到`用户名.github.com`
+
+2. 如果使用 GitHub 的的域名，请删除`CNAME`文件,然后把你的项目修改为`用户名.github.io`
+
+3. 修改`pages/about.md`中关于我的内容
+
+4. 修改`_config.yml`文件，具体作用请参考注释
+
+5. 清空`post _posts`目录下所有文件，注意是清空，不是删除这两个目录
+
+6. 网站的 logo 和 favicon 放在了`static/img/`下，替换即可，大小无所谓，图片比例最好是 1:1
+
+7. 如果你是把项目 fork 过去的，想要删除我的提交记录可以先软重置到第一个提交，然后再提交一次，最后强制推送一次就行了
+
+# 使用
+
+文章放在`_posts`目录下，命名为`yyyy-MM-dd-xxxx-xxxx.md`，内容格式如下
 
 ```yaml
-theme: jekyll-theme-minimalism
+---
+layout: mypost
+title: 标题
+categories: [分类1, 分类2]
+---
+文章内容，Markdown格式
 ```
 
-使用 GitHub pages 发布时，在你的配置文件 `_config.yml` 中修改启用远程主题:
+文章资源放在`posts`目录，如文章文件名是`2019-05-01-theme-usage.md`，则该篇文章的资源需要放在`posts/2019/05/01`下,在文章使用时直接引用即可。当然了，写作的时候会提示资源不存在忽略即可
 
-```yaml
-# theme: jekyll-theme-minimalism
-remote_theme: showzeng/Minimalism
+```md
+![这是图片](xxx.png)
+
+[xxx.zip 下载](xxx.zip)
 ```
-
-## 使用
-
-移步 [wiki] 或者查看 [demo]。
-
-## 支持
-
-如果你觉得这个主题还不错，欢迎 star 或使用。你也可以自由的 fork，基于本主题打造你自己的主题，当然，希望最好是能署名或提及本博客主题。
-
-此外你有什么好的建议、需求或者是碰到什么问题，欢迎提交 [issue]，本主题还会不断完善。
-
-## 致谢
-
-博客主题文章的文字颜色及部分排版受凯哥 [HenCoder] 网站的启发，打赏样式受 [写代码的猴子的博客][Jaeger] 的启发，特此感谢。
-
-文章图片查看大图由 [zooming](https://github.com/kingdido999/zooming) 提供支持，特此感谢。
-
-## Todo
-
-- [ ] Multilingual support (多语言支持)
-- [ ] Toc (文章索引目录)
-- [ ] Math support with LaTeX (数学公式支持)
-
-## Change log
-
-查看 [版本更新日志][Change Log]
-
-## 打赏
-
-如果主题对你有帮助，并帮你节省了一些折腾的时间，可以考虑打赏，这是对我所做工作的最大肯定。
-
-![reward.png](./docs/reward.webp)
-
-## License
-
-The theme is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
-
-[blog]: https://showzeng.itscoder.com
-[demo]: https://showzeng.github.io
-[license]: https://creativecommons.org/licenses/by-nc-nd/4.0/
-[wiki]: https://github.com/showzeng/Minimalism/wiki
-[issue]: https://github.com/showzeng/Minimalism/issues/new
-[Change Log]: https://github.com/showzeng/Minimalism/wiki/Change-Log
-[HenCoder]: https://hencoder.com/
-[Jaeger]: https://jaeger.itscoder.com/
