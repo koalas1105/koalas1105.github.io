@@ -1,11 +1,11 @@
 encoding: utf-8
 
 # SEO相关信息
-title: TMaize Blog
-description: TMaize的个人博客
-keywords: TMaize,Blog,Java,Html,JavaScript
-author: TMaize
-footerText: 'Copyright © 2016 皖ICP备16016174号'
+title: Koalas1105 Blog
+description: Koalas1105的个人博客
+keywords: Koalas1105,Blog,Java,Html,JavaScript
+author: Koalas1105
+footerText: 
 
 # 这些不要动
 permalink: /posts/:year/:month/:day/:title.html
@@ -17,11 +17,11 @@ exclude: ['CNAME', 'README.md', 'LICENSE', '_site', 'dist', 'Gemfile', 'Gemfile.
 
 # 域名配置
 # baseurl配置,如果网站部署在根目录下的其他目录中，请设置为 /目录名
-domainUrl: 'https://blog.tmaize.net'
+domainUrl: 'https://koalas1105.github.io'
 baseurl: ''
 
 # 吐个槽地址，会在chat页面中重定向到该地址
-tucaoUrl: https://support.qq.com/product/86335
+tucaoUrl: 
 
 # 菜单
 # 必填字段 title: '文本' url: '链接'
